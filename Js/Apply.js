@@ -45,3 +45,22 @@ let a=`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0
 
 }
 loadAllData();
+
+document.getElementById('alldata').addEventListener('click', function () {
+    const dataContainer = document.getElementById('data-container');
+    dataContainer.textContent = '';
+    const dataComedy = document.getElementById('data-comedy');
+    dataComedy.textContent = '';
+    const allButton = document.getElementById('btn-comedy');
+    allButton.classList.remove('bg-[#FF1F3D]')
+    allButton.classList.add('bg-[#796e6eb2]')
+    const comedyButton = document.getElementById('btn-drawing');
+    comedyButton.classList.remove('bg-[#FF1F3D]')
+    comedyButton.classList.add('bg-[#796e6eb2]')
+    const MusicButton = document.getElementById('btn-apply');
+    MusicButton.classList.remove('bg-[#FF1F3D]')
+    MusicButton.classList.add('bg-[#796e6eb2]')
+    const allDrawingButton= document.getElementById('alldata');
+    allDrawingButton.classList.add('bg-[#FF1F3D]')
+    loadAllData();
+})

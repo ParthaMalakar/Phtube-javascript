@@ -25,6 +25,17 @@ const loadMusicData = async () => {
     displayMusicData(allDatas);
     console.log(allDatas)
 }
+function showTime(seconds) {
+    // let seconds = parseInt(second);
+    if (seconds == 0) {
+        return 0;
+    }
+    // if(typeof seconds != 'number'){return 0;}
+    var hours = Math.floor(seconds / 3600);
+    var minutes = Math.floor((seconds % 3600) / 60);
+    var remainingSeconds = seconds % 60;
+    return `<div>${hours}hrs ${minutes}min ${remainingSeconds}</div>`;
+}
 const displayMusicData = (allDatas) => {
     let a = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <g clip-path="url(#clip0_11_34)">
@@ -45,19 +56,23 @@ const displayMusicData = (allDatas) => {
         const dataCard = document.createElement('div');
         dataCard.classList = `card bg-gray-100 p-4 shadow-xl`;
         dataCard.innerHTML = `
-            <figure><img class ="h-[200px]" src="${allData.thumbnail}" alt="Shoes" /></figure>
-            <div class="flex gap-3">
-            <img class="w-10 h-10 rounded-full mt-5" src="${allData.authors[0].profile_picture}" alt="">
-            <div>
-            <h4 class="font-bold mt-5">${allData.title}</h4>
-            <div class="flex gap-2  items-center">
-            <p class="text-sm mt-2">${allData.authors[0]?.profile_name}</p>
-            <p>${allData.authors[0].verified === true ? a : ''}</p>
-            </div>
-            <p class="text-sm mt-2 text-[#171717B2]">${allData.others.views} views</p>
-            </div>
-            </div>
-            `;
+        <figure><img class ="h-[200px]" src="${allData.thumbnail}" alt="Shoes" /></figure>
+        <div class="flex gap-3">
+        <img class="w-10 h-10 rounded-full mt-5 relative" src="${allData.authors[0].profile_picture}" alt="">
+        
+        <div>
+        <h4 class="font-bold mt-5">${allData.title}</h4>
+        <div class="flex gap-2  items-center">
+        <p class="text-sm mt-2">${allData.authors[0]?.profile_name}</p>
+        <p>${allData.authors[0].verified === true ? a : ''}</p>
+        </div>
+        <p class="text-sm mt-2 text-[#171717B2]">${allData.others.views} views</p>
+        </div>
+        </div>
+        <div class ="absolute right-8 top-44 bg-[#171717] p-1 text-yellow-50">
+        <p >${showTime(allData.others.posted_date) != 0 ? showTime(allData.others.posted_date) : ''}</P>
+        </div>
+        `;
         dataContainer.appendChild(dataCard);
 
     });

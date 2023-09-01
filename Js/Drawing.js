@@ -12,7 +12,7 @@ document.getElementById('btn-drawing').addEventListener('click', function () {
     const MusicButton = document.getElementById('btn-apply');
     MusicButton.classList.remove('bg-[#FF1F3D]')
     MusicButton.classList.add('bg-[#796e6eb2]')
-    const comedyButton= document.getElementById('btn-drawing');
+    const comedyButton = document.getElementById('btn-drawing');
     comedyButton.classList.add('bg-[#FF1F3D]')
     loadDrawingData();
 })
@@ -24,11 +24,11 @@ const loadDrawingData = async () => {
     console.log(allDatas)
 }
 const displayDrawingData = (allDatas) => {
-    
-    
-if(allDatas.length=== 0){
-    const dataContainer = document.getElementById('data-comedy');
-    const dataCard = document.createElement('div');
+
+
+    if (allDatas.length === 0) {
+        const dataContainer = document.getElementById('data-comedy');
+        const dataCard = document.createElement('div');
         dataCard.classList = ` text-center flex justify-center`;
         dataCard.innerHTML = `
         <div>
@@ -36,9 +36,9 @@ if(allDatas.length=== 0){
             <p class="mt-8 font-bold text-2xl">Oops!! Sorry, There is no <br> content here</p>
             </div>
             `;
-            
+
         dataContainer.appendChild(dataCard);
 
-}
-  
+    }
+
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-500 h-full">
+    <div class="collapse bg-base-200">
+        <input type="radio" name="my-accordion-1" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+            Discuss the scope of var, let, and const ?
+        </div>
+        <div class="collapse-content">
+            <h3><b>var:</b></h3>
+
+            <p> Variables declared with var are function-scoped, which means they are only accessible within the
+                function where they are declared.
+                Hoisting: var declarations are hoisted to the top of their containing function or global scope, but
+                their assignments are not hoisted.
+            </p>
+            <h3><b>let:</b></h3>
+
+            <p>Block-scoped: Variables declared with let are block-scoped, which means they are accessible only within
+                the block (e.g., within loops or conditionals) where they are defined.
+                No hoisting: Unlike var, let variables are hoisted to the top of their block but are not initialized
+                until the line where they are declared is executed.
+            </p>
+            <h3><b>const:</b></h3>
+            <p>
+
+                Block-scoped: Like let, variables declared with const are block-scoped.
+                Constant value: const variables cannot be reassigned after their initial value is set. However, for
+                objects and arrays, the values within them can be modified, but the variable itself cannot be assigned a
+                new value.
+            </p>
+        </div>
+    </div>
+    <div class="collapse bg-base-200">
+        <input type="radio" name="my-accordion-1" />
+        <div class="collapse-title text-xl font-medium">
+            Tell us the use cases of null and undefined?
+        </div>
+        <div class="collapse-content">
+            <h3><b>null:</b></h3>
+            <p><b>Explicit absence of value: </b>null is used to explicitly indicate the absence of any object value or
+                no value at all. It is often used as a placeholder to represent that a variable or property
+                intentionally has no value or has been cleared.</p>
+
+            <p><b>Initializing variables:</b> You can initialize a variable with null to signify that it hasn't been
+                assigned any meaningful value yet.</p>
+            <h3><b>undefined:</b></h3>
+            <p><b>Default uninitialized value: </b>In JavaScript, variables that are declared but not initialized are
+                automatically assigned the value undefined. It represents the absence of an assigned value.
+            </p>
+            <p><b>Function parameters:</b>When a function is called with fewer arguments than declared in its
+                parameters, the missing parameters are undefined.
+            </p>
+            <p><b>Object properties:</b> If you try to access an object property that doesn't exist, it returns
+                undefined.</p>
+        </div>
+    </div>
+    <div class="collapse bg-base-200">
+        <input type="radio" name="my-accordion-1" />
+        <div class="collapse-title text-xl font-medium">
+            What do you mean by REST API?
+        </div>
+        <div class="collapse-content">
+            <p>RESTful APIs are commonly used in web development to enable communication between different software
+                systems over the internet. They are known for their simplicity, scalability, and widespread adoption due
+                to their alignment with the HTTP protocol, making them a popular choice for building web services and
+                APIs.</p>
+        </div>
+    </div>
+</body>
+
+</html>

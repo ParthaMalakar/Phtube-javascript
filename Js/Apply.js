@@ -1,3 +1,31 @@
+const DynamicButton = async () => {
+    const res = await fetch(` https://openapi.programming-hero.com/api/videos/categories`);
+    const data = await res.json();
+    const allDatas = data.data;
+    displayButtonData(allDatas);
+
+}
+const displayButtonData = (allDatas) => {
+    
+    const dataContainer = document.getElementById('main');
+    // dataContainer.textContent = ''; 
+        const dataCard = document.createElement('div');
+        // dataCard.classList = `mt-7 container mx-auto flex justify-center`;
+        dataCard.innerHTML = `
+        <section class="mt-7 container mx-auto flex justify-center">
+            <button id="alldata" onclick="AllLoadButton()" class="btn bg-[#FF1F3D] mr-4 text-white">${allDatas[0].category}</button>
+            <button id="btn-apply" onclick="musicLoad()"class="btn bg-[#796e6eb2] mr-4">${allDatas[1].category}</button>
+            <button id="btn-comedy" onclick="ComedyLoad()"class="btn bg-[#796e6eb2] mr-4">${allDatas[2].category}</button>
+            <button id="btn-drawing" onclick="Draw()" class="btn bg-[#796e6eb2]">${allDatas[3].category}</button>
+        </section>
+        `;
+        dataContainer.appendChild(dataCard);
+
+
+
+
+}
+DynamicButton();
 const loadAllData = async () => {
     const res = await fetch(` https://openapi.programming-hero.com/api/videos/category/${1000}`);
     const data = await res.json();
@@ -59,8 +87,7 @@ const displayData = (allDatas) => {
 
 }
 loadAllData();
-
-document.getElementById('alldata').addEventListener('click', function () {
+ function AllLoadButton() {
     const dataContainer = document.getElementById('data-container');
     dataContainer.textContent = '';
     const dataComedy = document.getElementById('data-comedy');
@@ -75,9 +102,10 @@ document.getElementById('alldata').addEventListener('click', function () {
     MusicButton.classList.remove('bg-[#FF1F3D]')
     MusicButton.classList.add('bg-[#796e6eb2]')
     const allDrawingButton = document.getElementById('alldata');
+    allDrawingButton.classList.remove('bg-[#796e6eb2]')
     allDrawingButton.classList.add('bg-[#FF1F3D]')
     loadAllData();
-})
+}
 document.getElementById('sort-call').addEventListener('click', function () {
     const dataContainer = document.getElementById('data-container');
     dataContainer.textContent = '';

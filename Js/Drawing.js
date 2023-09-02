@@ -1,4 +1,4 @@
-document.getElementById('btn-drawing').addEventListener('click', function () {
+function Draw() {
     const dataContainer = document.getElementById('data-container');
     dataContainer.textContent = '';
     const dataComedy = document.getElementById('data-comedy');
@@ -13,9 +13,10 @@ document.getElementById('btn-drawing').addEventListener('click', function () {
     MusicButton.classList.remove('bg-[#FF1F3D]')
     MusicButton.classList.add('bg-[#796e6eb2]')
     const comedyButton = document.getElementById('btn-drawing');
+    comedyButton.classList.remove('bg-[#796e6eb2]')
     comedyButton.classList.add('bg-[#FF1F3D]')
     loadDrawingData();
-})
+}
 const loadDrawingData = async () => {
     const res = await fetch(` https://openapi.programming-hero.com/api/videos/category/${1005}`);
     const data = await res.json();

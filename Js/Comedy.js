@@ -1,21 +1,23 @@
-document.getElementById('btn-comedy').addEventListener('click', function () {
+ function ComedyLoad() {
   const dataContainer = document.getElementById('data-container');
   dataContainer.textContent = '';
   const dataComedy = document.getElementById('data-comedy');
   dataComedy.textContent = '';
   const allButton = document.getElementById('alldata');
-  allButton.classList.remove('bg-[#FF1F3D]')
-  allButton.classList.add('bg-[#796e6eb2]')
+  allButton.classList.remove('bg-[#FF1F3D]');
+  allButton.classList.add('bg-[#796e6eb2]');
   const comedyButton = document.getElementById('btn-drawing');
-  comedyButton.classList.remove('bg-[#FF1F3D]')
-  comedyButton.classList.add('bg-[#796e6eb2]')
+  comedyButton.classList.remove('bg-[#FF1F3D]');
+  comedyButton.classList.add('bg-[#796e6eb2]');
   const MusicButton = document.getElementById('btn-apply');
-  MusicButton.classList.remove('bg-[#FF1F3D]')
-  MusicButton.classList.add('bg-[#796e6eb2]')
+  MusicButton.classList.remove('bg-[#FF1F3D]');
+  MusicButton.classList.add('bg-[#796e6eb2]');
   const allDrawingButton = document.getElementById('btn-comedy');
-  allDrawingButton.classList.add('bg-[#FF1F3D]')
+  allDrawingButton.classList.remove('bg-[#796e6eb2]');
+
+  allDrawingButton.classList.add('bg-[#FF1F3D]');
   loadComedyData();
-})
+}
 const loadComedyData = async () => {
   const res = await fetch(` https://openapi.programming-hero.com/api/videos/category/${1003}`);
   const data = await res.json();

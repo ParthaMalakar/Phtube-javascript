@@ -1,18 +1,18 @@
 function sortAllArray(Allsorts) {
-    let arraySort = [];
-    let fullArray = [];
-    Allsorts.forEach(Allsort => {
+  let arraySort = [];
+  let fullArray = [];
+  Allsorts.forEach(Allsort => {
 
 
-        let items = Allsort.others.views;
-        const full = parseFloat(items)
-        const person = {
-            value: full,
-            data: Allsort
-        }
-        arraySort.push(person);
-    });
-  let arrayFull =  doneSort(arraySort);
+    let items = Allsort.others.views;
+    const full = parseFloat(items)
+    const person = {
+      value: full,
+      data: Allsort
+    }
+    arraySort.push(person);
+  });
+  let arrayFull = doneSort(arraySort);
   let a = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <g clip-path="url(#clip0_11_34)">
       <path d="M19.375 10.0001C19.375 10.8001 18.3922 11.4595 18.1953 12.197C17.9922 12.9595 18.5063 14.022 18.1203 14.6892C17.7281 15.3673 16.5484 15.4486 15.9984 15.9986C15.4484 16.5486 15.3672 17.7282 14.6891 18.1204C14.0219 18.5064 12.9594 17.9923 12.1969 18.1954C11.4594 18.3923 10.8 19.3751 10 19.3751C9.2 19.3751 8.54062 18.3923 7.80312 18.1954C7.04062 17.9923 5.97813 18.5064 5.31094 18.1204C4.63281 17.7282 4.55156 16.5486 4.00156 15.9986C3.45156 15.4486 2.27187 15.3673 1.87969 14.6892C1.49375 14.022 2.00781 12.9595 1.80469 12.197C1.60781 11.4595 0.625 10.8001 0.625 10.0001C0.625 9.20012 1.60781 8.54075 1.80469 7.80325C2.00781 7.04075 1.49375 5.97825 1.87969 5.31106C2.27187 4.63293 3.45156 4.55168 4.00156 4.00168C4.55156 3.45168 4.63281 2.272 5.31094 1.87981C5.97813 1.49387 7.04062 2.00793 7.80312 1.80481C8.54062 1.60793 9.2 0.625122 10 0.625122C10.8 0.625122 11.4594 1.60793 12.1969 1.80481C12.9594 2.00793 14.0219 1.49387 14.6891 1.87981C15.3672 2.272 15.4484 3.45168 15.9984 4.00168C16.5484 4.55168 17.7281 4.63293 18.1203 5.31106C18.5063 5.97825 17.9922 7.04075 18.1953 7.80325C18.3922 8.54075 19.375 9.20012 19.375 10.0001Z" fill="#2568EF"/>
@@ -24,12 +24,12 @@ function sortAllArray(Allsorts) {
       </clipPath>
     </defs>
     </svg>`;
-    const dataContaine = document.getElementById('data-container');
-    arrayFull.forEach(allData => {
+  const dataContaine = document.getElementById('data-container');
+  arrayFull.forEach(allData => {
 
-        const dataCard = document.createElement('div');
-        dataCard.classList = `card bg-gray-100 p-4 shadow-xl`;
-        dataCard.innerHTML = `
+    const dataCard = document.createElement('div');
+    dataCard.classList = `card bg-gray-100 p-4 shadow-xl`;
+    dataCard.innerHTML = `
         <figure><img class ="h-[200px]" src="${allData.data.thumbnail}" alt="Shoes" /></figure>
         <div class="flex gap-3">
         <img class="w-10 h-10 rounded-full mt-5 relative" src="${allData.data.authors[0].profile_picture}" alt="">
@@ -47,25 +47,24 @@ function sortAllArray(Allsorts) {
         <p >${showTime(allData.data.others.posted_date) != 0 ? showTime(allData.data.others.posted_date) : ''}</P>
         </div>
         `;
-        dataContaine.appendChild(dataCard);
+    dataContaine.appendChild(dataCard);
 
-    });
+  });
 }
-function doneSort(arraySort){
-    arraySort.sort(function (a, b) {
-        return b.value - a.value;
-    });
+function doneSort(arraySort) {
+  arraySort.sort(function (a, b) {
+    return b.value - a.value;
+  });
 }
- function showTime(seconds) {
-        // let seconds = parseInt(second);
-        if (seconds == 0) {
-            return 0;
-        }
-        // if(typeof seconds != 'number'){return 0;}
-        var hours = Math.floor(seconds / 3600);
-        var minutes = Math.floor((seconds % 3600) / 60);
-        var remainingSeconds = seconds % 60;
-        return `<div>${hours}hrs ${minutes}min ${remainingSeconds}</div>`;
-    }
-    
+function showTime(seconds) {
+  // let seconds = parseInt(second);
+  if (seconds == 0) {
+    return 0;
+  }
+  // if(typeof seconds != 'number'){return 0;}
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds % 3600) / 60);
+  var remainingSeconds = seconds % 60;
+  return `<div>${hours}hrs ${minutes}min ${remainingSeconds}</div>`;
 }
+

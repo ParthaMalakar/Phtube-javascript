@@ -82,13 +82,26 @@ document.getElementById('sort-call').addEventListener('click', function () {
     const dataContainer = document.getElementById('data-container');
     dataContainer.textContent = '';
     async function datasort() {
-        const res = await fetch(` https://openapi.programming-hero.com/api/videos/category/${1000}`);
+        const res = await fetch(` https://openapi.programming-hero.com/api/videos/categories`);
         const data = await res.json();
         const allDatas = data.data;
-        sortAllArray(allDatas);
+        const allSortData = document.getElementById('alldata');
+        if (allSortData.classList.contains('bg-[#FF1F3D]')) {
+            FindSingleObject(allDatas[0].category_id);
+        }
+        const MusicButton = document.getElementById('btn-apply');
+        if (MusicButton.classList.contains('bg-[#FF1F3D]')) {
+            FindSingleObject(allDatas[1].category_id);
+        }
+
+        const allButton = document.getElementById('btn-comedy');
+        if (allButton.classList.contains('bg-[#FF1F3D]')) {
+            FindSingleObject(allDatas[2].category_id);
+        }
+        // sortAllArray(allDatas);
     }
     datasort();
-    
+
 })
 function sortAllArray(Allsorts) {
     let arraySort = [];
@@ -165,6 +178,14 @@ function sortAllArray(Allsorts) {
     });
 
 
+
+}
+const FindSingleObject = async (value) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${value}`);
+    const data = await res.json();
+    const allDatas = data.data;
+    sortAllArray(allDatas);
+    console.log(allDatas)
 
 }
 

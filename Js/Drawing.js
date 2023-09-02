@@ -32,7 +32,7 @@ const displayDrawingData = (allDatas) => {
         dataCard.classList = ` text-center flex justify-center`;
         dataCard.innerHTML = `
         <div>
-            <figure><img class ="h-[140px] w-[140px] mt-20 ml-16" src="Images/Icon.png" alt="Shoes" /></figure>
+            <figure><img class ="h-[140px] w-[140px] mt-20 ml-16" src="./Images/Icon.png" alt="Shoes" /></figure>
             <p class="mt-8 font-bold text-2xl">Oops!! Sorry, There is no <br> content here</p>
             </div>
             `;

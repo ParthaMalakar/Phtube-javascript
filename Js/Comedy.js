@@ -34,7 +34,7 @@ function showTime(seconds) {
   var hours = Math.floor(seconds / 3600);
   var minutes = Math.floor((seconds % 3600) / 60);
   var remainingSeconds = seconds % 60;
-  return `<div>${hours}hrs ${minutes}min ${remainingSeconds}</div>`;
+  return `<div>${hours}hrs ${minutes}min ago</div>`;
 
 }
 const displayComedyData = (allDatas) => {
